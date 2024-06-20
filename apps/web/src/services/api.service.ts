@@ -2,7 +2,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import config from 'config';
-import { notifications } from '@mantine/notifications';
 import { sendNotification } from '../pages/components/notifications/notification';
 
 export class ApiError extends Error {

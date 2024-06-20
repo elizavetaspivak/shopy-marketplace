@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { accountApi } from 'resources/account';
 
 import { LayoutType, RoutePath, routesConfiguration, ScopeType } from 'routes';
-import config from 'config';
 
 import MainLayout from './MainLayout';
 import PrivateScope from './PrivateScope';

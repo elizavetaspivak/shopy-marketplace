@@ -2,17 +2,13 @@ import React, { useState } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import router from 'next/router';
-import { Box, Button, FileInput, Flex, Image, rem, Stack, TextInput, Title } from '@mantine/core';
+import { Box, Button, FileInput, Flex, Image, Stack, TextInput, Title } from '@mantine/core';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { productApi } from '../../../resources/product';
-import { handleError } from '../../../utils';
 import { CreateProductIcon } from '../../components/icons/createProductIcon';
-import { notifications } from '@mantine/notifications';
-import { IconCheck } from '@tabler/icons-react';
-import { log } from 'next/dist/server/typescript/utils';
 
 const schema = z.object({
   file: z.any(),

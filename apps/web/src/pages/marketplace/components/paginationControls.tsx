@@ -1,7 +1,5 @@
-import { Box, Button, Card, Flex, Input, Pagination } from '@mantine/core';
-import { IconX } from '@tabler/icons-react';
-import { undefined } from 'zod';
-import React, { ChangeEvent } from 'react';
+import { Box, Pagination } from '@mantine/core';
+import React from 'react';
 
 type PaginationControlsProps = {
   pagesCount: number | undefined;

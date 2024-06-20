@@ -1,5 +1,5 @@
 import { notifications } from '@mantine/notifications';
-import { IconCheck, IconCross, IconX } from '@tabler/icons-react';
+import { IconCheck, IconX } from '@tabler/icons-react';
 import { rem } from '@mantine/core';
 import React from 'react';
 
