@@ -91,6 +91,7 @@
     "tsconfig": "workspace:*",
     "typescript": "5.2.2"
   },
+  "packageManager": "pnpm@9.0.6",
   "lint-staged": {
     "*.ts": [
       "eslint --fix"
