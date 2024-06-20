@@ -3,12 +3,13 @@ import { z } from 'zod';
 import { userService } from 'resources/user';
 
 import { validateMiddleware } from 'middlewares';
+import { emailService } from 'services';
 import { securityUtil } from 'utils';
 
+import config from 'config';
+
 import { EMAIL_REGEX, PASSWORD_REGEX } from 'app-constants';
-import { AppKoaContext, AppRouter, Next } from 'types';
-import { authService } from '../../../services';
-import config from '../../../config';
+import { AppKoaContext, AppRouter, Next, Template } from 'types';
 
 const schema = z.object({
   email: z.string().toLowerCase().regex(EMAIL_REGEX, 'Email format is incorrect.'),
@@ -42,13 +43,26 @@ async function handler(ctx: AppKoaContext<ValidatedData>) {
   const user = await userService.insertOne({
     email,
     passwordHash: hash.toString(),
-    isEmailVerified: true,
+    isEmailVerified: false,
     signupToken,
   });
 
-  await Promise.all([userService.updateLastRequest(user._id), authService.setTokens(ctx, user._id)]);
+  await emailService.sendTemplate<Template.VERIFY_EMAIL>({
+    to: user.email,
+    subject: 'Please Confirm Your Email Address for Ship',
+    template: Template.VERIFY_EMAIL,
+    params: {
+      firstName: user.email,
+      href: `${config.API_URL}/account/verify-email?token=${signupToken}`,
+    },
+  });
 
-  ctx.body = { signupToken };
+  if (config.IS_DEV) {
+    ctx.body = { signupToken };
+    return;
+  }
+
+  ctx.status = 204;
 }
 
 export default (router: AppRouter) => {

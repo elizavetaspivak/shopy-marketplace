@@ -27,7 +27,6 @@ import { RoutePath } from 'routes';
 import config from 'config';
 
 import { EMAIL_REGEX, PASSWORD_REGEX } from 'app-constants';
-import { useRouter } from 'next/router';
 
 const schema = z.object({
   email: z.string().toLowerCase().regex(EMAIL_REGEX, 'Email format is incorrect.'),
@@ -65,8 +64,6 @@ const SignUp: NextPage = () => {
 
   const [passwordRulesData, setPasswordRulesData] = useState(passwordRules);
   const [opened, setOpened] = useState(false);
-
-  const router = useRouter();
 
   const {
     register,
@@ -112,7 +109,31 @@ const SignUp: NextPage = () => {
   );
 
   if (registered) {
-    router.reload();
+    return (
+      <>
+        <Head>
+          <title>Sign up</title>
+        </Head>
+
+        <Stack w={450}>
+          <Title order={2}>Thanks!</Title>
+
+          <Text size="md" c="gray.6">
+            Please follow the instructions from the email to complete a sign up process. We sent an email with a
+            confirmation link to <b>{email}</b>
+          </Text>
+
+          {signupToken && (
+            <Stack gap={0}>
+              <Text>You look like a cool developer.</Text>
+              <Anchor size="sm" href={`${config.API_URL}/account/verify-email?token=${signupToken}`} target="_blank">
+                Verify email
+              </Anchor>
+            </Stack>
+          )}
+        </Stack>
+      </>
+    );
   }
 
   return (

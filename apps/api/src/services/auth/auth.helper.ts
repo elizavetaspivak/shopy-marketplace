@@ -9,9 +9,12 @@ import { AppKoaContext } from 'types';
 export const setTokenCookies = ({ ctx, accessToken }: { ctx: AppKoaContext; accessToken: string }) => {
   const parsedUrl = url.parse(config.WEB_URL);
 
+  console.log(parsedUrl, 'parsedUrl');
+
   if (!parsedUrl.hostname) {
     return;
   }
+  console.log(parsedUrl.hostname, 'parsedUrl.hostname');
 
   const parsed = psl.parse(parsedUrl.hostname) as psl.ParsedDomain;
   const cookiesDomain = parsed.domain || undefined;

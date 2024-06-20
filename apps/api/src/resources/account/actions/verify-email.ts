@@ -40,6 +40,16 @@ async function handler(ctx: AppKoaContext<ValidatedData>) {
 
   await Promise.all([userService.updateLastRequest(user._id), authService.setTokens(ctx, user._id)]);
 
+  await emailService.sendTemplate<Template.SIGN_UP_WELCOME>({
+    to: user.email,
+    subject: 'Welcome to Ship Community!',
+    template: Template.SIGN_UP_WELCOME,
+    params: {
+      firstName: user.email,
+      href: `${config.WEB_URL}/sign-in`,
+    },
+  });
+
   ctx.redirect(config.WEB_URL);
 }
 
