@@ -37,10 +37,10 @@ async function handler(ctx: AppKoaContext<ValidatedData>) {
 
     const [hash, signupToken] = await Promise.all([securityUtil.getHash(password), securityUtil.generateSecureToken()]);
 
-    const user = await userService.insertOne({
+    await userService.insertOne({
         email,
         passwordHash: hash.toString(),
-        isEmailVerified: false,
+        isEmailVerified: true,
         signupToken,
     });
 
