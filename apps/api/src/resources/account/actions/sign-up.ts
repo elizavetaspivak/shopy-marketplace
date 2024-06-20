@@ -47,21 +47,21 @@ async function handler(ctx: AppKoaContext<ValidatedData>) {
     signupToken,
   });
 
-  await emailService.sendTemplate<Template.VERIFY_EMAIL>({
-    to: user.email,
-    subject: 'Please Confirm Your Email Address for Ship',
-    template: Template.VERIFY_EMAIL,
-    params: {
-      firstName: '',
-      href: `${config.API_URL}/account/verify-email?token=${signupToken}`,
-    },
-  });
+  // await emailService.sendTemplate<Template.VERIFY_EMAIL>({
+  //   to: user.email,
+  //   subject: 'Please Confirm Your Email Address for Ship',
+  //   template: Template.VERIFY_EMAIL,
+  //   params: {
+  //     firstName: '',
+  //     href: `${config.API_URL}/account/verify-email?token=${signupToken}`,
+  //   },
+  // });
 
-  if (config.IS_DEV) {
-    ctx.body = { signupToken };
-    return;
-  }
-
+  // if (config.IS_DEV) {
+  //   ctx.body = { signupToken };
+  //   return;
+  // }
+  ctx.body = { signupToken };
   ctx.status = 204;
 }
 
