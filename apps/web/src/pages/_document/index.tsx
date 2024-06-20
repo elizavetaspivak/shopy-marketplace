@@ -8,7 +8,7 @@ const Document = () => (
       <link rel="icon" href="/favicon.ico" />
       <ColorSchemeScript defaultColorScheme="auto" />
     </Head>
-    <body>
+    <body style={{ backgroundColor: '#FCFCFC' }}>
       <Main />
       <NextScript />
     </body>
