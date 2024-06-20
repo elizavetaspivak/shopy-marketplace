@@ -5,13 +5,12 @@ import Button from './_components/button';
 import Layout from './_layout';
 
 export interface VerifyEmailProps {
-  firstName: string;
   href: string;
 }
 
-export const VerifyEmail: FC<VerifyEmailProps> = ({ firstName = 'John', href = 'https://ship.paralect.com' }) => (
+export const VerifyEmail: FC<VerifyEmailProps> = ({ href = 'https://ship.paralect.com' }) => (
   <Layout previewText="Welcome on board the Ship!">
-    <Text>Dear {firstName},</Text>
+    <Text>Hello,</Text>
 
     <Text>Welcome to Ship! We are excited to have you on board.</Text>
 

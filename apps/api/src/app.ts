@@ -3,6 +3,7 @@
 // For example, require('lib/mongo/idGenerator')
 // All options can be found here: https://gist.github.com/branneman/8048520
 import moduleAlias from 'module-alias';
+
 moduleAlias.addPath(__dirname);
 moduleAlias(); // read aliases from package json
 
@@ -26,12 +27,16 @@ import redisClient, { redisErrorHandler } from 'redis-client';
 import logger from 'logger';
 
 import { AppKoa } from 'types';
+import multer from '@koa/multer';
+
+const upload = multer();
 
 const initKoa = () => {
   const app = new AppKoa();
 
   app.use(cors({ credentials: true }));
   app.use(helmet());
+  app.use(upload.any());
   qs(app);
   app.use(
     bodyParser({
