@@ -22,7 +22,7 @@ const UserMenu: FC = () => {
     <Flex align="center" justify="space-between" gap={32}>
       <Box w={40} h={40} style={{ position: 'relative' }}>
         <Anchor w="100%" h="100%" display="inline-block" component={Link} href={RoutePath.Basket} c="#2B77EB">
-          {cartCount > 0 && (
+          {cartCount && cartCount > 0 && (
             <Badge size="sm" bg="#2B77EB" circle style={{ position: 'absolute', right: 0 }}>
               {cartCount}
             </Badge>

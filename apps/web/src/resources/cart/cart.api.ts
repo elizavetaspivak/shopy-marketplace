@@ -41,7 +41,7 @@ export const useGetHistory = () =>
   });
 
 export const useGetCartCounts = () =>
-  useQuery<{ results: any[] }>({
+  useQuery<number>({
     queryKey: ['cartCount'],
     queryFn: () => apiService.get('/cart/counts'),
   });
