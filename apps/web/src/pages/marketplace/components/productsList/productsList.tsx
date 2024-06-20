@@ -53,3 +53,5 @@ export const ProductsList = memo(
     );
   },
 );
+
+ProductsList.displayName = 'ProductsList';
