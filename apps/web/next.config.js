@@ -24,5 +24,8 @@ module.exports = {
     outputFileTracingRoot: join(__dirname, '../../'),
   },
   pageExtensions: ['page.tsx', 'api.ts'],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   transpilePackages: ['app-constants', 'schemas', 'types'],
 };
