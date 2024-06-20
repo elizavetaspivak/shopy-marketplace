@@ -22,7 +22,7 @@ const History: NextPage = () => {
     return <EmptyPage />;
   }
 
-  const rows = history?.map((element) => <HistoryRow cart={element} />);
+  const rows = history?.map((element) => <HistoryRow key={element._id} cart={element} />);
 
   return (
     <>

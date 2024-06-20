@@ -49,7 +49,7 @@ const Cart: NextPage = () => {
     return <EmptyPage />;
   }
 
-  const rows = carts?.map((element: CardResponce) => <CartRow cart={element} />);
+  const rows = carts?.map((element: CardResponce) => <CartRow key={element._id} cart={element} />);
 
   return (
     <>
