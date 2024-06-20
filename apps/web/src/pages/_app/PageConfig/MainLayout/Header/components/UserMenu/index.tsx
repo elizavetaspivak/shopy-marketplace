@@ -18,8 +18,6 @@ const UserMenu: FC = () => {
 
   const isBasketActive = pa === '/basket';
 
-  console.log(cartCount, 'cartCount');
-
   return (
     <Flex align="center" justify="space-between" gap={32}>
       <Box w={40} h={40} style={{ position: 'relative' }}>
