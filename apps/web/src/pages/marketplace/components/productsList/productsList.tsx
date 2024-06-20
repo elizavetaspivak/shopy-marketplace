@@ -1,8 +1,32 @@
-import { Box, Grid, Skeleton } from '@mantine/core';
-import React, { memo } from 'react';
+import {
+  ActionIcon,
+  Box,
+  Button,
+  Card,
+  Flex,
+  Grid,
+  Group,
+  Image,
+  Pill,
+  Skeleton,
+  Stack,
+  Text,
+  TextInput,
+} from '@mantine/core';
+import { IconSearch, IconX } from '@tabler/icons-react';
+import React, { ChangeEvent, memo, useLayoutEffect, useState } from 'react';
+import classes from '../../index.module.css';
+import queryClient from '../../../../query-client';
+import { useCreateCart } from '../../../../resources/cart/cart.api';
+import { PER_PAGE } from '../../constants';
+import { useDebouncedValue } from '@mantine/hooks';
 import { SortDirection } from '@tanstack/react-table';
+import { ProductsListParams } from '../../index.page';
 import { ListResult } from '../../../../types';
 import { ProductResponce } from '../../../../resources/product/product.api';
+import { BasicButton } from '../../../components/basic-button/basicButton';
+import { SortIcon } from '../../../components/icons/sortIcon';
+import { SortArrowIcon } from '../../../components/icons/sortArrowIcon';
 import { SortByNewest } from './sortByNewest';
 import { Product } from './product';
 

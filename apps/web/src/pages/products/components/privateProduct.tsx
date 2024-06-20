@@ -1,10 +1,9 @@
 import { Badge, Box, Card, Grid, Group, Image, Text, ThemeIcon, UnstyledButton } from '@mantine/core';
-import { DeleteProductIcon } from '../../../components/icons/deleteProductIcon';
+import { DeleteProductIcon } from '../../components/icons/deleteProductIcon';
 import React from 'react';
-import { useDeleteProduct, useUpdateProduct } from '../../../../resources/product/product.api';
+import { useDeleteProduct, useUpdateProduct } from '../../../resources/product/product.api';
 import { Product } from 'app-types/src/product.types';
 import { SaleStatus } from 'schemas/src/product.schema';
-import classes from './privateProduct.module.css';
 
 type PrivateProductProps = {
   product: Product;

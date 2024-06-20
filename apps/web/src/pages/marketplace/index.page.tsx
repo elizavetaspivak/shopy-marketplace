@@ -6,9 +6,9 @@ import { useDebouncedValue, useInputState } from '@mantine/hooks';
 
 import { ListParams, SortOrder } from 'types';
 import { productApi } from '../../resources/product';
-import { FilterCard } from './components/filterCard/filterCard';
+import { FilterCard } from './components/filterCard';
 import { ProductsList } from './components/productsList/productsList';
-import { PaginationControls } from './components/paginationControls/paginationControls';
+import { PaginationControls } from './components/paginationControls';
 import { SearchProducts } from './components/searchProducts';
 import { SortDirection } from '@tanstack/react-table';
 import { PER_PAGE } from './constants';

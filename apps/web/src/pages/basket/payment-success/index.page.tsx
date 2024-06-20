@@ -17,7 +17,7 @@ const PaymentSuccess: NextPage = () => {
 
       <Box className={classes.container}>
         <Box m={'0 auto'} h={'269px'} bg={'white'} className={classes.contentBox}>
-          <ShopyPaymentSuccess className={classes.icon} />
+          <ShopyPaymentSuccess style={{ width: '56px', paddingTop: '20px' }} />
           <Box pt={'20px'} fz={'24px'} fw={600}>
             Payment Successfull
           </Box>

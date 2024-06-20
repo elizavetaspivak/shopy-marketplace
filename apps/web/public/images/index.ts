@@ -1,2 +1,4 @@
-export { default as LogoImage } from './logo.svg';
-export { default as ShipLightImage } from './ship-light.svg';
+export { default as LogoImage } from './shopy-logo.svg';
+export { default as ShopyPaymentSuccess } from './shopy-payment-success.svg';
+export { default as ShopyBaloon } from './shopy-ballon.svg';
+export { default as ShopyPaymentFailed } from './shopy-payment-failed.svg';

@@ -1,8 +1,8 @@
 export const DATABASE_DOCUMENTS = {
   USERS: 'users',
   TOKENS: 'tokens',
-  PRODUCTS: 'products',
   CART: 'cart',
+  PRODUCTS: 'products',
 };
 
 export const COOKIES = {

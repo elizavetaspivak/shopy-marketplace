@@ -1,6 +1,7 @@
-import { Box, Pagination } from '@mantine/core';
-import React from 'react';
-import classes from './paginationControls.module.css';
+import { Box, Button, Card, Flex, Input, Pagination } from '@mantine/core';
+import { IconX } from '@tabler/icons-react';
+import { undefined } from 'zod';
+import React, { ChangeEvent } from 'react';
 
 type PaginationControlsProps = {
   pagesCount: number | undefined;
@@ -17,7 +18,7 @@ export const PaginationControls = ({ pagesCount, page, setPage }: PaginationCont
     <Box mt={'20px'} mb={'20px'}>
       {pagesCount && pagesCount > 1 && (
         <Pagination
-          className={classes.pagination}
+          style={{ width: '10em', marginLeft: 'auto', marginRight: 'auto' }}
           color={'blue'}
           total={pagesCount}
           value={page}

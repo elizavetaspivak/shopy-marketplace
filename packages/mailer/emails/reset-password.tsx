@@ -5,12 +5,13 @@ import Button from './_components/button';
 import Layout from './_layout';
 
 export interface ResetPasswordProps {
+  firstName: string;
   href: string;
 }
 
-export const ResetPassword: FC<ResetPasswordProps> = ({ href = 'https://ship.paralect.com' }) => (
+export const ResetPassword: FC<ResetPasswordProps> = ({ firstName = 'John', href = 'https://ship.paralect.com' }) => (
   <Layout previewText="Reset password">
-    <Text>Hello,</Text>
+    <Text>Dear {firstName},</Text>
 
     <Text>
       We received a request to reset the password for your account associated with this email address. If you made this

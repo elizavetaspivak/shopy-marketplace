@@ -60,6 +60,11 @@ async function handler(ctx: AppKoaContext<ValidatedData>) {
     });
   }
 
+  if (config.IS_DEV) {
+    ctx.body = { status: 'ok' };
+    return;
+  }
+
   ctx.status = 204;
 }
 

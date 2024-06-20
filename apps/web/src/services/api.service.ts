@@ -2,6 +2,8 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import config from 'config';
+import { notifications } from '@mantine/notifications';
+import { sendNotification } from '../pages/components/notifications/notification';
 
 export class ApiError extends Error {
   data: any;
@@ -55,6 +57,8 @@ class ApiClient {
           statusText: error.message,
           data: error.data,
         };
+
+        sendNotification('Something went wrong', getErrorMessage(errorResponse.data), 'red');
 
         const errorHandlers = this._handlers.get('error') || [];
         errorHandlers.forEach((handler: any) => {
@@ -112,6 +116,12 @@ class ApiClient {
     return () => this._handlers.get(event).remove(handler);
   }
 }
+
+const getErrorMessage = (errorObj: any) => {
+  const errors = errorObj.errors;
+  const firstKey = Object.keys(errors)[0]; // Получаем первый ключ в объекте ошибок
+  return errors[firstKey][0]; // Возвращаем первую ошибку для этого ключа
+};
 
 export default new ApiClient({
   baseURL: config.API_URL,

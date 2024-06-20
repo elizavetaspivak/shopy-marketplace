@@ -4,8 +4,8 @@ import Head from 'next/head';
 import { Grid, Title } from '@mantine/core';
 
 import { productApi } from '../../resources/product';
-import { CreateNewProduct } from './components/createNewProduct/createNewProduct';
-import { PrivateProduct } from './components/privateProduct/privateProduct';
+import { CreateNewProduct } from './components/createNewProduct';
+import { PrivateProduct } from './components/privateProduct';
 
 const Products: NextPage = () => {
   const { data: products } = productApi.useGetMyProducts();

@@ -11,13 +11,16 @@ export enum LayoutType {
 export enum RoutePath {
   // Private paths
   Home = '/',
-  Profile = '/profile',
+  Products = '/products',
+  Basket = '/basket',
+  Marketplace = '/marketplace',
+  CreateProduct = '/products/create',
+  PaymentSuccess = '/basket/payment-success',
+  PaymentFailed = '/basket/payment-failed',
 
   // Auth paths
   SignIn = '/sign-in',
   SignUp = '/sign-up',
-  ForgotPassword = '/forgot-password',
-  ResetPassword = '/reset-password',
   ExpireToken = '/expire-token',
 
   NotFound = '/404',
@@ -36,7 +39,27 @@ export const routesConfiguration: RoutesConfiguration = {
     scope: ScopeType.PRIVATE,
     layout: LayoutType.MAIN,
   },
-  [RoutePath.Profile]: {
+  [RoutePath.Basket]: {
+    scope: ScopeType.PRIVATE,
+    layout: LayoutType.MAIN,
+  },
+  [RoutePath.PaymentSuccess]: {
+    scope: ScopeType.PRIVATE,
+    layout: LayoutType.MAIN,
+  },
+  [RoutePath.PaymentFailed]: {
+    scope: ScopeType.PRIVATE,
+    layout: LayoutType.MAIN,
+  },
+  [RoutePath.Marketplace]: {
+    scope: ScopeType.PRIVATE,
+    layout: LayoutType.MAIN,
+  },
+  [RoutePath.Products]: {
+    scope: ScopeType.PRIVATE,
+    layout: LayoutType.MAIN,
+  },
+  [RoutePath.CreateProduct]: {
     scope: ScopeType.PRIVATE,
     layout: LayoutType.MAIN,
   },
@@ -47,14 +70,6 @@ export const routesConfiguration: RoutesConfiguration = {
     layout: LayoutType.UNAUTHORIZED,
   },
   [RoutePath.SignUp]: {
-    scope: ScopeType.PUBLIC,
-    layout: LayoutType.UNAUTHORIZED,
-  },
-  [RoutePath.ForgotPassword]: {
-    scope: ScopeType.PUBLIC,
-    layout: LayoutType.UNAUTHORIZED,
-  },
-  [RoutePath.ResetPassword]: {
     scope: ScopeType.PUBLIC,
     layout: LayoutType.UNAUTHORIZED,
   },

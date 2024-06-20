@@ -47,15 +47,6 @@ async function handler(ctx: AppKoaContext<ValidatedData>) {
     signupToken,
   });
 
-  await emailService.sendTemplate<Template.VERIFY_EMAIL>({
-    to: user.email,
-    subject: 'Please Confirm Your Email Address for Ship',
-    template: Template.VERIFY_EMAIL,
-    params: {
-      href: `${config.API_URL}/account/verify-email?token=${signupToken}`,
-    },
-  });
-
   if (config.IS_DEV) {
     ctx.body = { signupToken };
     return;

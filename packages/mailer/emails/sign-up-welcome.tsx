@@ -5,12 +5,13 @@ import Button from './_components/button';
 import Layout from './_layout';
 
 export interface SignUpWelcomeProps {
+  firstName: string;
   href: string;
 }
 
-export const SignUpWelcome: FC<SignUpWelcomeProps> = ({ href = 'https://ship.paralect.com' }) => (
+export const SignUpWelcome: FC<SignUpWelcomeProps> = ({ firstName = 'John', href = 'https://ship.paralect.com' }) => (
   <Layout previewText="Welcome on board the Ship!">
-    <Text>Dear ,</Text>
+    <Text>Dear {firstName},</Text>
 
     <Text>We are excited to have you join our growing Ship community.</Text>
 
