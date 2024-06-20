@@ -3,7 +3,6 @@ import { Template, TemplateProps } from 'mailer';
 export type From = { email: string; name: string };
 
 export interface EmailServiceConstructorProps {
-  apiKey: string | undefined;
   from: From;
 }
 
