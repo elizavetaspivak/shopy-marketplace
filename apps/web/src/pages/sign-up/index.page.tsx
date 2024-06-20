@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 import {
   Anchor,
   Button,
@@ -110,8 +109,31 @@ const SignUp: NextPage = () => {
   );
 
   if (registered) {
-    redirect('/marketplace');
-    return;
+    return (
+      <>
+        <Head>
+          <title>Sign up</title>
+        </Head>
+
+        <Stack w={450}>
+          <Title order={2}>Thanks!</Title>
+
+          <Text size="md" c="gray.6">
+            Please follow the instructions from the email to complete a sign up process. We sent an email with a
+            confirmation link to <b>{email}</b>
+          </Text>
+
+          {signupToken && (
+            <Stack gap={0}>
+              <Text>You look like a cool developer.</Text>
+              <Anchor size="sm" href={`${config.API_URL}/account/verify-email?token=${signupToken}`} target="_blank">
+                Verify email
+              </Anchor>
+            </Stack>
+          )}
+        </Stack>
+      </>
+    );
   }
 
   return (
